@@ -12,13 +12,15 @@ import java.util.List;
 import static java.lang.Integer.parseInt;
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins = "*")
 public class CodeLogController {
+
+
 
     @Autowired
     CodeLogRepository repository;
 
-    @GetMapping("/codeLogAll")
+    @GetMapping("/codeLog")
     public ResponseEntity<List<CodeLog>> getCodeLogs(){
         return ResponseEntity.status(HttpStatus.OK).body(repository.findAll());
     }
